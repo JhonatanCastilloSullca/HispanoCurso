@@ -1,0 +1,11 @@
+---
+// Recibe dos props: icono y enlace
+const { icon: Icon, link }: { icon: any; link: string } = Astro.props;
+---
+
+<a
+    href={link}
+    class="flex items-center bg-blue-700 hover:bg-blue-600 text-white px-2 py-2 rounded-lg shadow"
+>
+    <Icon class="w-6 h-6" />
+</a>
