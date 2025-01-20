@@ -1,12 +1,112 @@
 ---
+import InstagramIcon from "../../public/iconos/InstagramIcon.astro";
+import LinkedInIcon from "../../public/iconos/LinkedInIcon.astro";
 import Background from "../components/Background.astro";
+import BigSection from "../components/BigSection.astro";
 import Header from "../components/Header.astro";
+import IconLink from "../components/IconLink.astro";
+import Testimonios from "../components/Testimonios.astro";
+import Timeline from "../components/Timeline.astro";
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
+const socialLinks = [
+    {
+        icon: LinkedInIcon,
+        link: "https://www.linkedin.com",
+    },
+    {
+        icon: InstagramIcon,
+        link: "https://www.instagram.com",
+    },
+];
+const academicData = [
+    {
+        titulo: "Formation Académique",
+        secciones: [
+            {
+                title: "Licence en Éducation.",
+            },
+            {
+                title: "Formation à l'enseignement de l'espagnol comme langue étrangère (ELE).",
+            },
+            {
+                title: "Formation continue à Salamanque, Espagne, pour la préparation de l'examen DELE.",
+            },
+        ],
+    },
+];
+const professionalData = [
+    {
+        titulo: "Expérience Professionnelle",
+        secciones: [
+            {
+                time: "2008 - 2012",
+                title: "Professeur d'espagnol dans des écoles internationales au Pérou.",
+            },
+            {
+                time: "2008 - 2012",
+                title: "Enseignant dans des écoles de langues telles que ECELA (Pérou, Chili et Argentine) et Et Máximo Nivel (Pérou, Guatemala et Costa Rica).",
+            },
+            {
+                time: "2012 - Présent",
+                title: "Professeur d'espagnol en Suisse, travaillant en freelance et dans une école de langues à Lausanne.",
+            },
+        ],
+    },
+];
 ---
 
 <!-- Titulo para el SEO -->
 <Layout>
-    <Header />
-    <h1>Sobre mi</h1>
+    <BigSection id="inicio" class="justify-between">
+        <div class="grid grid-cols-2 gap-4">
+            <div
+                class="flex flex-col items-center md:items-start text-center md:text-left space-y-6 max-w-lg"
+            >
+                <h1
+                    class="text-5xl font-bold text-yellowPrimary dark:text-white"
+                >
+                    🖐 Salut, je m'appelle Dante.
+                </h1>
+
+                <div
+                    class="flex items-center bg-white dark:bg-brownDark text-grayMedium dark:text-white px-4 py-2 rounded-full shadow-lg"
+                >
+                    👨‍🏫 Espagnol - Français
+                </div>
+
+                <p
+                    class="text-lg leading-relaxed text-pretty text-grayMedium dark:text-white"
+                >
+                    J'ai un diplôme en éducation et un enseignant spécialisé en
+                    enseignement de l'espagnol comme langue étrangère (ELE).
+                    Avec plus de 15 ans d'expérience, j'ai travaillé dans écoles
+                    internationales, écoles de langues au Pérou et J'enseigne
+                    actuellement en Suisse en tant que professeur en freelance
+                    et dans une école de langues à Lausanne.
+                </p>
+
+                <div class="flex space-x-4">
+                    {
+                        socialLinks.map(({ icon, link }) => (
+                            <IconLink icon={icon} link={link} />
+                        ))
+                    }
+                </div>
+            </div>
+            <div class="relative flex-shrink-0 flex justify-center">
+                <img
+                    src="/images/175182536_802693567292708_31008254925110702.png"
+                    alt="Perfil"
+                    class="w-96 h-auto object-cover img-instructor"
+                />
+            </div>
+        </div>
+    </BigSection>
+    <BigSection id="profesional" class="justify-center">
+        <div class="grid grid-cols-2 gap-4">
+            <Timeline items={academicData} />
+            <Timeline items={professionalData} />
+        </div>
+    </BigSection>
 </Layout>

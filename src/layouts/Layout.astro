@@ -1,5 +1,29 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import Background from "../components/Background.astro";
+import BigSection from "../components/BigSection.astro";
+import Footer from "../components/Footer.astro";
+import ContactForm from "../components/FormContact";
+import Header from "../components/Header.astro";
+import Testimonios from "../components/Testimonios.astro";
+
+const carouselData = [
+	{
+		text: "Un grand merci, Dante, pour ces cours structurés et ludiques. Grâce à toi, j'ai pu réaliser mon projet de partir faire du volontariat au Pérou. J'ai pu communiquer et échanger avec les locaux et vivre une expérience unique et inoubliable.",
+		image: "./images/avatar.png",
+		name: "Anna",
+	},
+	{
+		text: "Dante est un excellent professeur. Il est patient, méthodique et plein d'humour. J'ai débuté sans aucunes connaissances en espagnol et maintenant je peux comprendre une conversation simple et répondre avec des bases solides. La salle est bien située et équipée. Merci Dante pour ce partage de connaissances",
+		image: "./images/avatar.png",
+		name: "Gisèle",
+	},
+	{
+		text: "Dante m’a fait progresser de manière spectaculaire tout en rendant le cours ludique, il insiste vraiment sur les verbes qui est la base fondamentale dans l’apprentissage de cette langue, je le recommande à 200%",
+		image: "./images/avatar.png",
+		name: "Davide M.",
+	},
+];
 ---
 
 <!doctype html>
@@ -10,10 +34,23 @@ import Background from "../components/Background.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+		<link rel="stylesheet" href="/src/styles/global.css" />
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"
+		></script>
+		<ClientRouter />
 	</head>
 	<body>
 		<Background />
+		<Header />
 		<slot />
+		<BigSection>
+			<ContactForm client:load />
+		</BigSection>
+		<BigSection>
+			<Testimonios items={carouselData} />
+		</BigSection>
+		<Footer />
 	</body>
 </html>
 
@@ -28,3 +65,7 @@ import Background from "../components/Background.astro";
 		}
 	}
 </style>
+
+<script type="module">
+	import "../../node_modules/flowbite";
+</script>

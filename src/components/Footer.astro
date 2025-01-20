@@ -1,0 +1,96 @@
+---
+import InstagramIcon from "../../public/iconos/InstagramIcon.astro";
+import LinkedInIcon from "../../public/iconos/LinkedInIcon.astro";
+import IconLink from "./IconLink.astro";
+
+const socialLinks = [
+    {
+        icon: LinkedInIcon,
+        link: "https://www.linkedin.com",
+    },
+    {
+        icon: InstagramIcon,
+        link: "https://www.instagram.com",
+    },
+];
+---
+
+<footer class="relative bg-blueGray-200 pt-8 pb-6">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap text-left lg:text-left">
+            <div class="w-full lg:w-6/12 px-4">
+                <h4
+                    class="text-3xl fonat-semibold text-grayMedium dark:text-white/90"
+                >
+                    Hispano Curso
+                </h4>
+                <h5
+                    class="text-lg mt-0 mb-2 text-grayMedium dark:text-white/90"
+                >
+                    BIENVENIDOS AL MUNDO DEL ESPAÑOL
+                </h5>
+                <div class="mt-6 lg:mb-0 mb-6">
+                    <div class="flex space-x-4">
+                        {
+                            socialLinks.map(({ icon, link }) => (
+                                <IconLink icon={icon} link={link} />
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+                <div class="flex flex-wrap items-top mb-6 justify-end">
+                    <div class="w-full lg:w-4/12 px-4">
+                        <span
+                            class="block uppercase text-blueGray-500 text-sm font-bold mb-2 text-yellowSecondary"
+                            >Liens utiles</span
+                        >
+                        <ul
+                            class="list-unstyled text-grayMedium dark:text-white/80"
+                        >
+                            <li>
+                                <a
+                                    class="text-grayMedium dark:text-white dark:hover:text-yellowSecondary hover:text-yellowSecondary font-semibold block pb-2 text-sm"
+                                    href="/">D'accueil</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="text-grayMedium dark:text-white dark:hover:text-yellowSecondary hover:text-yellowSecondary font-semibold block pb-2 text-sm"
+                                    href="/sur-moi"
+                                >
+                                    A propos de moi</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="text-grayMedium dark:text-white dark:hover:text-yellowSecondary hover:text-yellowSecondary font-semibold block pb-2 text-sm"
+                                    href="/cours">Cours</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="text-grayMedium dark:text-white dark:hover:text-yellowSecondary hover:text-yellowSecondary font-semibold block pb-2 text-sm"
+                                    href="/contactez">Contactez-nous</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-6 border-blueGray-300" />
+        <div
+            class="flex flex-wrap items-center md:justify-between justify-center"
+        >
+            <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+                <div
+                    class="text-sm text-brownDark dark:text-white font-semibold py-1"
+                >
+                    Hispano Curso 2024
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

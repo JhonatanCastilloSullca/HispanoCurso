@@ -5,7 +5,7 @@ const { icon: Icon, link }: { icon: any; link: string } = Astro.props;
 
 <a
     href={link}
-    class="flex items-center bg-blue-700 hover:bg-blue-600 text-white px-2 py-2 rounded-lg shadow"
+    class="flex items-center rounded-full p-2 bg-yellowSecondary hover:bg-yellowPrimary dark:bg-white dark:hover:bg-slate-100 text-white dark:text-yellowPrimary px-2 py-2 font-normal h-10 w-10 justify-center align-center outline-none focus:outline-none mr-2"
 >
-    <Icon class="w-6 h-6" />
+    <Icon class="w-5 h-5" />
 </a>

@@ -1,9 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	content: [
+		"./src/**/*.{astro,html,js,jsx,ts,tsx,vue}",
+		"./node_modules/flowbite/**/*.js"
+	],
 	darkMode: "class",
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				grayDark: '#444444',
+				grayMedium: '#666666',
+				stoneLight: '#938F84',
+				yellowPrimary: '#FABE19',
+				yellowSecondary: '#FAA419',
+				brownDark: '#644637',
+			},
+		},
 	},
-	plugins: [],
-}
+	plugins: [
+		require('flowbite/plugin')
+	],
+};
