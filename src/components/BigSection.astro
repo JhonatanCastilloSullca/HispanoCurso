@@ -2,7 +2,7 @@
 const { id, class: customClass } = Astro.props;
 ---
 
-<section id={id} class="relative w-full mx-auto max-w-7xl py-12">
+<section id={id} class="relative w-full mx-auto py-12">
     <div class={`mx-auto w-full  md:flex-row mt-10 ${customClass || ""}`}>
         <slot class="mx-auto" />
     </div>

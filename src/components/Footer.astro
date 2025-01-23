@@ -19,18 +19,26 @@ const socialLinks = [
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap text-left lg:text-left">
             <div class="w-full lg:w-6/12 px-4">
-                <h4
-                    class="text-3xl fonat-semibold text-grayMedium dark:text-white/90"
-                >
-                    Hispano Curso
-                </h4>
+                <div class="">
+                    <img
+                        src="/images/logo-hispano-color.png"
+                        class="h-32 dark:hidden w-full object-contain"
+                        alt="Logo Hispano Claro"
+                    />
+                    <img
+                        src="/images/logo-hispano-color-white.png"
+                        class="h-32 hidden dark:block w-full object-contain"
+                        alt="Logo Hispano Oscuro"
+                    />
+                </div>
                 <h5
-                    class="text-lg mt-0 mb-2 text-grayMedium dark:text-white/90"
+                    class="text-lg mt-0 mb-2 text-grayMedium dark:text-white/90 text-center"
                 >
-                    BIENVENIDOS AL MUNDO DEL ESPAÑOL
+                    Bienvenidos al mundo del español
                 </h5>
+
                 <div class="mt-6 lg:mb-0 mb-6">
-                    <div class="flex space-x-4">
+                    <div class="flex space-x-4 justify-center">
                         {
                             socialLinks.map(({ icon, link }) => (
                                 <IconLink icon={icon} link={link} />

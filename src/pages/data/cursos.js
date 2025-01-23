@@ -1,11 +1,8 @@
----
-import BigSection from "../components/BigSection.astro";
-import Cursos from "../components/Cursos";
-import Layout from "../layouts/Layout.astro";
-
-const cursos = [
+// Exporta el array `cursos`
+export const cursos = [
     {
-        titulo: "Curso Individual",
+        titulo: "Cours Individual",
+        slug: "cours-individual",
         descripcion:
             "Las lecciones individuales te permiten progresar rápidamente, estudiar a tu propio ritmo y en horarios flexibles. Aprender los conceptos básicos del idioma español (gramática, vocabulario, conjugación, etc.",
         beneficios: [
@@ -26,19 +23,11 @@ const cursos = [
             {
                 imagen: "/images/VID-20231117-WA0007.mp4",
             },
-            {
-                imagen: "https://via.placeholder.com/1350x840",
-            },
-            {
-                imagen: "https://via.placeholder.com/1600x820",
-            },
-            {
-                imagen: "https://via.placeholder.com/1720x1200",
-            },
         ],
     },
     {
-        titulo: "Curso Grupal",
+        titulo: "Cours Grupal",
+        slug: "cours-grupal",
         descripcion:
             "Les cours collectifs sont de 4 personnes maximum, cela permet de faire des cours entre amis ou en couple, selon les disponibilités de chacun. Les participants doivent avoir le même niveau. Apprendre la base de la langue espagnole (grammaire, vocabulaire, conjugaison, etc)",
         beneficios: [
@@ -59,19 +48,11 @@ const cursos = [
             {
                 imagen: "/images/VID-20231112-WA0005.mp4",
             },
-            {
-                imagen: "https://via.placeholder.com/1350x840",
-            },
-            {
-                imagen: "https://via.placeholder.com/1600x820",
-            },
-            {
-                imagen: "https://via.placeholder.com/1720x1200",
-            },
         ],
     },
     {
-        titulo: "Curso Online",
+        titulo: "Cours Online",
+        slug: "cours-online",
         descripcion:
             "Cours par Zoom, depuis chez toi ou depuis ton lieu de travail, à l’heure qui te convient le mieux, je suis très flexible. Apprendre la base de la langue espagnole (grammaire, vocabulaire, conjugaison, etc)",
         beneficios: [
@@ -92,19 +73,11 @@ const cursos = [
             {
                 imagen: "/images/VID-20231112-WA0010.mp4",
             },
-            {
-                imagen: "https://via.placeholder.com/1350x840",
-            },
-            {
-                imagen: "https://via.placeholder.com/1600x820",
-            },
-            {
-                imagen: "https://via.placeholder.com/1720x1200",
-            },
         ],
     },
     {
-        titulo: " Cours Entreprises",
+        titulo: "Cours Entreprises",
+        slug: "cours-enterprises",
         descripcion:
             "Vous désirez proposer des cours d’espagnol à vos employés, dans votre entreprise, en présentiel ou par zoom, en groupe ou en individuel. ",
         beneficios: [
@@ -116,22 +89,6 @@ const cursos = [
             {
                 imagen: "/images/VID-20231112-WA0013.mp4",
             },
-            {
-                imagen: "https://via.placeholder.com/1350x840",
-            },
-            {
-                imagen: "https://via.placeholder.com/1600x820",
-            },
-            {
-                imagen: "https://via.placeholder.com/1720x1200",
-            },
         ],
     },
 ];
----
-
-<Layout>
-    <BigSection id="cursos" class="max-w-7xl">
-        <Cursos client:load cursos={cursos} />
-    </BigSection>
-</Layout>

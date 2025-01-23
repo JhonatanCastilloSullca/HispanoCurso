@@ -12,11 +12,7 @@ const navItems = [
         label: "sur-moi",
         url: "/sur-moi",
     },
-    {
-        title: "Cours",
-        label: "cours",
-        url: "/cours",
-    },
+
     {
         title: "Contactez-nous",
         label: "contactez",
@@ -26,23 +22,129 @@ const navItems = [
 ---
 
 <header
-    class="fixed top-0 z-10 flex items-center justify-center w-full mt-2 p-2 md:p-3 mx-auto"
+    class="fixed top-0 z-10 flex flex-col md:flex-row items-center justify-center w-full mt-2 p-2 md:p-3 mx-auto"
 >
     <nav
-        class="flex px-4 py-2 text-sm font-medium rounded-full dark:text-gray-200 justify-center items-center"
+        class="flex justify-center items-center bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 rounded-full"
     >
-        {
-            navItems.map((link) => (
-                <a
-                    class="relative block px-6 py-2 transition hover:text-yellowSecondary dark:hover:text-yellowSecondary "
-                    aria-label={link.label}
-                    href={link.url}
+        <div
+            class="max-w-screen-xl flex items-center justify-between mx-auto px-4 py-2 rounded-lg"
+        >
+            <button
+                data-collapse-toggle="navbar-dropdown"
+                type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-dropdown"
+                aria-expanded="false"
+            >
+                <span class="sr-only">Open main menu</span>
+                <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 17 14"
                 >
-                    {link.title}
-                </a>
-            ))
-        }
-        <ThemeToggle />
+                    <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15"></path>
+                </svg>
+            </button>
+            <div
+                class="flex flex-col md:flex-row w-full rounded-lg"
+                id="navbar-dropdown"
+            >
+                <div class="mb-4 md:mb-0 md:mr-4 flex justify-center">
+                    <a href="/">
+                        <img
+                            src="/images/logo-hispano-color.png"
+                            class="h-12 dark:hidden"
+                            alt="Logo Hispano Claro"
+                        />
+                        <img
+                            src="/images/logo-hispano-color-white.png"
+                            class="h-12 hidden dark:block"
+                            alt="Logo Hispano Oscuro"
+                        />
+                    </a>
+                </div>
+                <ul class="w-100 overflow-auto flex flex-row items-center">
+                    {
+                        navItems.map((link) => (
+                            <a
+                                href={link.url}
+                                class="font-semibold w-100 max-w-fit min-w-fit relative block px-4 py-2 transition text-grayDark dark:text-white hover:text-yellowSecondary dark:hover:text-yellowSecondary"
+                            >
+                                {link.title}
+                            </a>
+                        ))
+                    }
+                    <li>
+                        <button
+                            id="dropdownNavbarLink"
+                            data-dropdown-toggle="dropdownNavbar"
+                            class="font-semibold flex items-center align-middle w-100 max-w-fit min-w-fit relative px-4 py-2 transition text-grayDark dark:text-white hover:text-yellowSecondary dark:hover:text-yellowSecondary"
+                            >Cours <svg
+                                class="w-2.5 h-2.5 ms-2.5"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 10 6"
+                            >
+                                <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="m1 1 4 4 4-4"></path>
+                            </svg></button
+                        >
+                        <div
+                            id="dropdownNavbar"
+                            class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+                        >
+                            <ul
+                                class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                                aria-labelledby="dropdownLargeButton"
+                            >
+                                <li>
+                                    <a
+                                        href="/cours/cours-individual"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        >Curso Individual</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="/cours/cours-grupal"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        >Curso Grupal</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="/cours/cours-online"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        >Curso Online</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="/cours/cours-enterprises"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        >Cours Entreprises</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <ThemeToggle />
+        </div>
     </nav>
 </header>
 
@@ -98,12 +200,12 @@ const navItems = [
     }
 
     nav {
-        @apply dark:bg-brownDark bg-white/50;
+        @apply dark:bg-brownDark bg-white/80;
     }
 
     @keyframes nav-shadown {
         0% {
-            @apply dark:bg-gray-800/0 bg-white/0;
+            @apply dark:bg-gray-800/0 bg-white/50;
         }
         to {
             @apply shadow-lg ring-1 backdrop-blur ring-white/10;
