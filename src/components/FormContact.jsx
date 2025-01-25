@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import CarouselComponent from './CarouselComponent';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
 
 
 export default function ContactForm() {
@@ -56,8 +58,10 @@ export default function ContactForm() {
         "/images/IMG_20210426_135106_904.jpg",
         "/images/IMG_20210426_135106_937.jpg",
         "/images/IMG_20210426_135337_504.jpg",
-        "/images/IMG-20230426-WA0000.jpg",
-        "/images/Photo_entrepise.png",
+        "/images/satisfied-teacher.jpg",
+        "/images/stock1.jpg",
+        "/images/stock2.jpg",
+        "/images/stock3.png",
 
     ];
 
@@ -187,7 +191,7 @@ export default function ContactForm() {
 
                         <div className="flex justify-center items-center w-full h-full">
 
-                            <Swiper className="mySwiper h-full">
+                            <Swiper navigation={true} modules={[Navigation]} className="mySwiper h-full">
                                 {images.map((image, index) => (
                                     <SwiperSlide>
                                         <div className="w-full h-full object-cover">
