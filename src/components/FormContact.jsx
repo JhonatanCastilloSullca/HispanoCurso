@@ -1,6 +1,9 @@
 import { Carousel } from 'flowbite';
 import { useEffect, useState } from 'react';
 import CarouselComponent from './CarouselComponent';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
 
 export default function ContactForm() {
     const [formStatus, setFormStatus] = useState('');
@@ -57,13 +60,7 @@ export default function ContactForm() {
         "/images/Photo_entrepise.png",
 
     ];
-    const [randomImage, setRandomImage] = useState("/images/Hispano_Curso_2.jpg");
 
-    useEffect(() => {
-
-        const randomIndex = Math.floor(Math.random() * images.length);
-        setRandomImage(images[randomIndex]);
-    }, []);
 
     return (
         <>
@@ -189,10 +186,16 @@ export default function ContactForm() {
                     <div className="flex justify-center items-center w-full h-full">
 
                         <div className="flex justify-center items-center w-full h-full">
-                            <div className="w-full h-full object-cover">
-                                <CarouselComponent images={images} />
 
-                            </div>
+                            <Swiper className="mySwiper h-full">
+                                {images.map((image, index) => (
+                                    <SwiperSlide>
+                                        <div className="w-full h-full object-cover">
+                                            <img src={image} alt="" className='w-full h-full object-cover' />
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
                         </div>
                     </div>
                 </div>
@@ -202,3 +205,4 @@ export default function ContactForm() {
 
     );
 }
+

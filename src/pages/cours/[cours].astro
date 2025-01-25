@@ -3,6 +3,7 @@ import BigSection from "../../components/BigSection.astro";
 import Cursos from "../../components/Cursos";
 import Layout from "../../layouts/Layout.astro";
 import { cursos } from "../data/cursos";
+import CarouselComponentVideo from "../../components/CarouselComponentVideo";
 
 const { cours } = Astro.params;
 
@@ -64,21 +65,10 @@ export function getStaticPaths() {
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    {
-                        /* <img
-                        src={cursoSeleccionado.imagenes[0].imagen}
-                        alt="Perfil"
-                        class="object-cover img-instructor rounded-md"
-                    /> */
-                    }
-                    <video
-                        class="object-cover img-instructor rounded-md h-full"
-                        src={cursoSeleccionado.imagenes[0].imagen}
-                        autoplay
-                        loop
-                        muted
-                    >
-                    </video>
+                    <CarouselComponentVideo
+                        images={cursoSeleccionado.imagenes}
+                        client:load
+                    />
                 </div>
             </div>
         </div>
