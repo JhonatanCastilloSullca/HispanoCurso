@@ -1,4 +1,6 @@
+import { Carousel } from 'flowbite';
 import { useEffect, useState } from 'react';
+import CarouselComponent from './CarouselComponent';
 
 export default function ContactForm() {
     const [formStatus, setFormStatus] = useState('');
@@ -65,7 +67,7 @@ export default function ContactForm() {
 
     return (
         <>
-            <div className="relative w-full mx-auto py-12 max-w-full">
+            <div className="relative w-full mx-auto pb-12 max-w-full">
 
                 <div
                     className="absolute inset-0"
@@ -79,7 +81,7 @@ export default function ContactForm() {
                 ></div>
 
 
-                <div className="relative max-w-7xl mx-auto grid grid-cols-1 gap-6 lg:grid-cols-2 justify-center items-center align-middle px-4 py-24">
+                <div className="relative max-w-7xl mx-auto grid grid-cols-1 gap-6 lg:grid-cols-2 justify-center items-center align-middle px-4 ">
                     <div className="bg-brownDark/20 dark:bg-white/20 rounded-md">
                         <div className="py-6 px-4 mx-auto max-w-screen-sm lg:py-16 lg:px-8">
                             <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-center text-brownDark dark:text-white">
@@ -185,11 +187,13 @@ export default function ContactForm() {
                     </div>
 
                     <div className="flex justify-center items-center w-full h-full">
-                        <img
-                            src={randomImage}
-                            alt="Perfil"
-                            className="img-instructor rounded-xl w-full h-full object-cover"
-                        />
+
+                        <div className="flex justify-center items-center w-full h-full">
+                            <div className="w-full h-full object-cover">
+                                <CarouselComponent images={images} />
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

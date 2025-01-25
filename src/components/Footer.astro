@@ -2,6 +2,7 @@
 import InstagramIcon from "../../public/iconos/InstagramIcon.astro";
 import LinkedInIcon from "../../public/iconos/LinkedInIcon.astro";
 import IconLink from "./IconLink.astro";
+import WhatsappFloating from "./Whatsapp";
 
 const socialLinks = [
     {
@@ -16,6 +17,9 @@ const socialLinks = [
 ---
 
 <footer class="relative bg-blueGray-200 pt-8 pb-6">
+    <div class="absolute">
+        <WhatsappFloating client:load />
+    </div>
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap text-left lg:text-left">
             <div class="w-full lg:w-6/12 px-4">

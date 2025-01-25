@@ -21,7 +21,14 @@ export const cursos = [
         ],
         imagenes: [
             {
-                imagen: "/images/VID-20231117-WA0007.mp4",
+                imagen: "/images/VID-20231112-WA0010.mp4",
+            },
+            {
+                imagen: "/images/VID-20231112-WA0013.mp4",
+            },
+
+            {
+                imagen: "/images/VID-20231112-WA0005.mp4",
             },
         ],
     },
@@ -45,6 +52,12 @@ export const cursos = [
             },
         ],
         imagenes: [
+            {
+                imagen: "/images/VID-20231112-WA0013.mp4",
+            },
+            {
+                imagen: "/images/VID-20231112-WA0010.mp4",
+            },
             {
                 imagen: "/images/VID-20231112-WA0005.mp4",
             },
@@ -71,7 +84,13 @@ export const cursos = [
         ],
         imagenes: [
             {
+                imagen: "/images/VID-20231112-WA0013.mp4",
+            },
+            {
                 imagen: "/images/VID-20231112-WA0010.mp4",
+            },
+            {
+                imagen: "/images/VID-20231112-WA0005.mp4",
             },
         ],
     },
@@ -86,6 +105,13 @@ export const cursos = [
             },
         ],
         imagenes: [
+            {
+
+                imagen: "/images/VID-20231112-WA0005.mp4",
+            },
+            {
+                imagen: "/images/VID-20231112-WA0010.mp4",
+            },
             {
                 imagen: "/images/VID-20231112-WA0013.mp4",
             },

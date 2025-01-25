@@ -55,11 +55,7 @@ function Cursos({ cursos }) {
                             </div>
                         </div>
                         <div className="flex justify-center">
-                            {/* <img
-                                src={cursoSeleccionado.imagenes[0].imagen}
-                                alt="Perfil"
-                                className="object-cover img-instructor rounded-md"
-                            /> */}
+
                             <video
                                 className="object-cover img-instructor rounded-md h-full"
                                 src={cursoSeleccionado.imagenes[0].imagen}
