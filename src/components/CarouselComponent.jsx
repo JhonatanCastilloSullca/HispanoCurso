@@ -1,6 +1,8 @@
 import React from "react";
 
+
 const CarouselComponent = ({ images }) => {
+    console.log(images)
     return (
         <div id="default-carousel" className="relative w-full h-full" data-carousel="slide">
             {/* Carousel wrapper */}
@@ -20,7 +22,7 @@ const CarouselComponent = ({ images }) => {
                 ))}
             </div>
 
-            {/* Slider indicators */}
+            {/* Slider indicators 
             <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
                 {images.map((_, index) => (
                     <button
@@ -33,7 +35,7 @@ const CarouselComponent = ({ images }) => {
                     ></button>
                 ))}
             </div>
-
+            */}
             {/* Slider controls */}
             <button
                 type="button"

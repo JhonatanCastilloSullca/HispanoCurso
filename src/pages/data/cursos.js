@@ -3,6 +3,7 @@ export const cursos = [
     {
         titulo: "Cours Individual",
         slug: "cours-individual",
+        imagen: "no",
         descripcion:
             "Las lecciones individuales te permiten progresar rápidamente, estudiar a tu propio ritmo y en horarios flexibles. Aprender los conceptos básicos del idioma español (gramática, vocabulario, conjugación, etc.",
         beneficios: [
@@ -21,20 +22,33 @@ export const cursos = [
         ],
         imagenes: [
             {
-                imagen: "/images/VID-20231112-WA0010.mp4",
+                imagen: "/images/VID-20231112-WA0001.mp4",
             },
             {
-                imagen: "/images/VID-20231112-WA0013.mp4",
+                imagen: "/images/VID-20231112-WA0003.mp4",
             },
 
             {
-                imagen: "/images/VID-20231112-WA0005.mp4",
+                imagen: "/images/VID-20231112-WA0004.mp4",
+            },
+            {
+                imagen: "/images/VID-20231112-WA0008.mp4",
+            },
+            {
+                imagen: "/images/VID-20231112-WA0009.mp4",
+            },
+            {
+                imagen: "/images/VID-20231112-WA0010.mp4",
+            },
+            {
+                imagen: "/images/VID-20231117-WA0007.mp4",
             },
         ],
     },
     {
         titulo: "Cours Grupal",
         slug: "cours-grupal",
+        imagen: "no",
         descripcion:
             "Les cours collectifs sont de 4 personnes maximum, cela permet de faire des cours entre amis ou en couple, selon les disponibilités de chacun. Les participants doivent avoir le même niveau. Apprendre la base de la langue espagnole (grammaire, vocabulaire, conjugaison, etc)",
         beneficios: [
@@ -53,12 +67,6 @@ export const cursos = [
         ],
         imagenes: [
             {
-                imagen: "/images/VID-20231112-WA0013.mp4",
-            },
-            {
-                imagen: "/images/VID-20231112-WA0010.mp4",
-            },
-            {
                 imagen: "/images/VID-20231112-WA0005.mp4",
             },
         ],
@@ -66,6 +74,7 @@ export const cursos = [
     {
         titulo: "Cours Online",
         slug: "cours-online",
+        imagen: "si",
         descripcion:
             "Cours par Zoom, depuis chez toi ou depuis ton lieu de travail, à l’heure qui te convient le mieux, je suis très flexible. Apprendre la base de la langue espagnole (grammaire, vocabulaire, conjugaison, etc)",
         beneficios: [
@@ -84,19 +93,14 @@ export const cursos = [
         ],
         imagenes: [
             {
-                imagen: "/images/VID-20231112-WA0013.mp4",
-            },
-            {
-                imagen: "/images/VID-20231112-WA0010.mp4",
-            },
-            {
-                imagen: "/images/VID-20231112-WA0005.mp4",
+                imagen: "/images/dante_laptop_editado.png",
             },
         ],
     },
     {
         titulo: "Cours Entreprises",
         slug: "cours-enterprises",
+        imagen: "si",
         descripcion:
             "Vous désirez proposer des cours d’espagnol à vos employés, dans votre entreprise, en présentiel ou par zoom, en groupe ou en individuel. ",
         beneficios: [
@@ -107,13 +111,11 @@ export const cursos = [
         imagenes: [
             {
 
-                imagen: "/images/VID-20231112-WA0005.mp4",
+                imagen: "/images/stock2.jpg",
             },
             {
-                imagen: "/images/VID-20231112-WA0010.mp4",
-            },
-            {
-                imagen: "/images/VID-20231112-WA0013.mp4",
+
+                imagen: "/images/stock3.png",
             },
         ],
     },

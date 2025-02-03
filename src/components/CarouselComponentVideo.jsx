@@ -1,26 +1,45 @@
-
+import { useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
-
 const CarouselComponentVideo = ({ images }) => {
-    console.log(images);
+    const swiperRef = useRef(null);
 
+    const handleSlideChange = () => {
+        // Pausar todos los videos cuando se cambia de slide
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.pause();
+        });
+    };
+
+    useEffect(() => {
+        // Obtener el swiper y agregar el evento 'slideChange'
+        const swiper = swiperRef.current.swiper;
+        swiper.on('slideChange', handleSlideChange);
+
+        // Limpiar el evento cuando el componente se desmonte
+        return () => {
+            swiper.off('slideChange', handleSlideChange);
+        };
+    }, []);
 
     return (
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-
+        <Swiper
+            navigation={true}
+            modules={[Navigation]}
+            className="mySwiper"
+            ref={swiperRef}
+        >
             {images.map((image, index) => (
-
                 <SwiperSlide key={index}>
                     <video
-                        class="object-cover img-instructor rounded-md h-full"
+                        className="object-cover img-instructor rounded-md h-full"
                         src={image.imagen}
-                        autoPlay
+                        controls
                         loop
-                        muted
                     >
                     </video>
                 </SwiperSlide>

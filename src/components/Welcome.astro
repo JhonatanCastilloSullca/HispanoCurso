@@ -13,6 +13,7 @@ import FlagIcon from "../../public/iconos/FlagIcon.astro";
 import Cursos from "./Cursos.jsx";
 import ContactForm from "./FormContact.jsx";
 import CheckIcon from "../../public/iconos/CheckIcon.astro";
+import CarouselComponent from "./CarouselComponent";
 
 const caracteristicas = [
 	{
@@ -97,6 +98,21 @@ const caracteristicas = [
 	},
 ];
 
+const Imagenes = [
+            {
+                imagen: "/images/slider_hispanocurso_01_a.jpg",
+            },
+            {
+                imagen: "/images/slider_hispanocurso_01_b.jpg",
+            },
+            {
+                imagen: "/images/slider_hispanocurso_01_c.jpg",
+            },
+            {
+                imagen: "/images/slider_hispanocurso_01_d_.jpg",
+            },
+        ];
+
 const carouselData = [
 	{
 		text: "Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.",
@@ -121,14 +137,13 @@ const carouselData = [
 
 <div>
 	<main>
-		<div class="w-full relative -mt-14">
-			<video
-				class="w-full h-[80vh] object-cover"
-				src="/images/video.mp4"
-				autoplay
-				loop
-			>
-			</video>
+		<div class="w-full relative mt-3">
+			<div class="w-full h-[100vh] object-cover z-10">
+				<CarouselComponent
+					images={Imagenes.map(img => img.imagen)} 
+					client:load
+				/>
+			</div>
 		</div>
 
 		<BigSection id="caracteristicas" class="max-w-7xl">
@@ -141,11 +156,13 @@ const carouselData = [
 			</div>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				<div class="flex justify-center items-center align-middle">
-					<img
-						src="/images/banner_01_curvas.png"
-						alt="Perfil"
+					<video
+						src="/images/video.mp4"
+						controls 
+						loop
 						class="object-cover rounded-md px-12"
-					/>
+					>
+					</video>
 				</div>
 				<div
 					class="mt-8 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-1 px-4 lg:grid-cols-1"
@@ -212,6 +229,32 @@ const carouselData = [
 							</div>
 						))
 					}
+				</div>
+			</div>
+		</BigSection>
+
+
+		<BigSection id="caracteristicas" class="max-w-7xl">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				<div
+					class="mt-2 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-1 px-4 lg:grid-cols-1"
+				>
+					<p class="px-12">
+					"Apprenez l'espagnol avec des cours personnalisés pour tous les niveaux !
+					Je vous offre une séance gratuite de 30 minutes pour découvrir ma méthode.
+					Horaires totalement flexibles adaptés à vos besoins.
+					Préparation spécialisée aux examens DELE.
+					N'attendez plus, réservez votre cours dès aujourd'hui !"
+					</p>
+				</div>
+				<div class="flex justify-center items-center align-middle">
+					<video
+						src="/images/Video Hispano Curso v6.mp4"
+						controls 
+						loop
+						class="object-cover rounded-md px-12"
+					>
+					</video>
 				</div>
 			</div>
 		</BigSection>

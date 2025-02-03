@@ -1,26 +1,38 @@
+import React, { useEffect } from "react";
+
 function Testimonios({ items }) {
+  useEffect(() => {
+    const carouselInterval = setInterval(() => {
+      const nextButton = document.querySelector('[data-carousel-next]');
+      if (nextButton) {
+        nextButton.click();
+      }
+    }, 9000); // Cambia 5000 por el tiempo en milisegundos que desees (por ejemplo, 5000 = 5 segundos)
+
+    return () => clearInterval(carouselInterval);
+  }, []);
+
+  const groupedItems = [];
+  for (let i = 0; i < items.length; i += 2) {
+    groupedItems.push(items.slice(i, i + 2)); // Agrupamos 2 elementos por paso
+  }
+
   return (
-    <>
-      <div className="flex w-full">
+    <div className="w-full">
+      <h3 className="text-center text-4xl font-semibold text-yellowSecondary mb-8">
+        Recommendations pour ce cours
+      </h3>
 
-        <div className="relative w-1/2 h-96">
-          <img
-            src="/images/Hispano_Curso_2.jpg"
-            alt="Perfil"
-            className="img-instructor rounded-xl w-full h-full object-contain"
-          />
-        </div>
-
-
-        <div id="default-carousel" className="relative w-1/2" data-carousel="slide">
-          <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-            {items.map((item, index) => (
-              <div
-                key={index}
-                className="duration-700 ease-in-out absolute inset-0 transition-transform transform z-10 translate-x-full px-12"
-                data-carousel-item
-              >
-                <div className="p-4 w-full">
+      <div id="default-carousel" className="relative w-full" data-carousel="slide">
+        <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+          {groupedItems.map((group, groupIndex) => (
+            <div
+              key={groupIndex}
+              className="duration-1000 ease-in-out absolute inset-0 transition-transform transform z-10 translate-x-full flex justify-between px-4"
+              data-carousel-item
+            >
+              {group.map((item, index) => (
+                <div key={index} className="w-1/2 p-4">
                   <div className="h-full bg-gray-100 p-8 rounded">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -41,68 +53,67 @@ function Testimonios({ items }) {
                         <span className="title-font font-medium text-gray-900">
                           {item.name}
                         </span>
-                        <span className="text-gray-500 text-sm">
-                          {item.position}
-                        </span>
+                        <span className="text-gray-600 text-sm">{item.position}</span>
                       </span>
                     </a>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <button
-            type="button"
-            className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-prev
-          >
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-              <svg
-                className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 6 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 1 1 5l4 4"
-                />
-              </svg>
-              <span className="sr-only">Previous</span>
-            </span>
-          </button>
-          <button
-            type="button"
-            className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-next
-          >
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-              <svg
-                className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 6 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m1 9 4-4-4-4"
-                />
-              </svg>
-              <span className="sr-only">Next</span>
-            </span>
-          </button>
+              ))}
+            </div>
+          ))}
         </div>
+
+        <button
+          type="button"
+          className="absolute top-1/2 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none transform -translate-y-1/2"
+          data-carousel-prev
+        >
+          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-600/30 dark:bg-gray-800/30 group-hover:bg-gray-600/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-gray-600 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg
+              className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 1 1 5l4 4"
+              />
+            </svg>
+            <span className="sr-only">Previous</span>
+          </span>
+        </button>
+
+        <button
+          type="button"
+          className="absolute top-1/2 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none transform -translate-y-1/2"
+          data-carousel-next
+        >
+          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-600/30 dark:bg-gray-800/30 group-hover:bg-gray-600/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-gray-600 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg
+              className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+            <span className="sr-only">Next</span>
+          </span>
+        </button>
       </div>
-    </>
+    </div>
   );
 }
 

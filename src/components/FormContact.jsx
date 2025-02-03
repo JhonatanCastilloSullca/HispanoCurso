@@ -187,26 +187,18 @@ export default function ContactForm() {
                         </div>
                     </div>
 
-                    <div className="flex justify-center items-center w-full h-full">
+                    <div className="flex justify-center items-center w-full">
 
-                        <div className="flex justify-center items-center w-full h-full">
+                        <div className="flex justify-center items-center w-full">
 
-                            <Swiper navigation={true} modules={[Navigation]} className="mySwiper h-full">
-                                {images.map((image, index) => (
-                                    <SwiperSlide>
-                                        <div className="w-full h-full object-cover">
-                                            <img src={image} alt="" className='w-full h-full object-cover' />
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
+                            <div className="w-full object-cover">
+                                <img src="/images/banner_01_curvas.png" alt="" className='w-full object-cover' />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </>
-
-
     );
 }
 

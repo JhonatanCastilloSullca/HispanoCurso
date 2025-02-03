@@ -2,6 +2,7 @@
 import BigSection from "../components/BigSection.astro";
 import Cursos from "../components/Cursos";
 import Layout from "../layouts/Layout.astro";
+import Testimonios from "../components/Testimonios";
 
 const cursos = [
     {
@@ -128,10 +129,45 @@ const cursos = [
         ],
     },
 ];
+const carouselData = [
+	{
+		text: "Un grand merci, Dante, pour ces cours structurés et ludiques. Grâce à toi, j'ai pu réaliser mon projet de partir faire du volontariat au Pérou. J'ai pu communiquer et échanger avec les locaux et vivre une expérience unique et inoubliable.",
+		image: "./images/avatar.png",
+		name: "Anna",
+	},
+	{
+		text: "Dante est un excellent professeur. Il est patient, méthodique et plein d'humour. J'ai débuté sans aucunes connaissances en espagnol et maintenant je peux comprendre une conversation simple et répondre avec des bases solides. La salle est bien située et équipée. Merci Dante pour ce partage de connaissances",
+		image: "./images/avatar.png",
+		name: "Gisèle",
+	},
+	{
+		text: "Dante m’a fait progresser de manière spectaculaire tout en rendant le cours ludique, il insiste vraiment sur les verbes qui est la base fondamentale dans l’apprentissage de cette langue, je le recommande à 200%",
+		image: "./images/avatar.png",
+		name: "Davide M.",
+	},
+	{
+		text: "Un grand merci, Dante, pour ces cours structurés et ludiques. Grâce à toi, j'ai pu réaliser mon projet de partir faire du volontariat au Pérou. J'ai pu communiquer et échanger avec les locaux et vivre une expérience unique et inoubliable.",
+		image: "./images/avatar.png",
+		name: "Anna",
+	},
+	{
+		text: "Dante est un excellent professeur. Il est patient, méthodique et plein d'humour. J'ai débuté sans aucunes connaissances en espagnol et maintenant je peux comprendre une conversation simple et répondre avec des bases solides. La salle est bien située et équipée. Merci Dante pour ce partage de connaissances",
+		image: "./images/avatar.png",
+		name: "Gisèle",
+	},
+	{
+		text: "Dante m’a fait progresser de manière spectaculaire tout en rendant le cours ludique, il insiste vraiment sur les verbes qui est la base fondamentale dans l’apprentissage de cette langue, je le recommande à 200%",
+		image: "./images/avatar.png",
+		name: "Davide M.",
+	},
+];
 ---
 
 <Layout>
     <BigSection id="cursos" class="max-w-7xl">
         <Cursos client:load cursos={cursos} />
     </BigSection>
+    <BigSection class="max-w-7xl">
+		<Testimonios items={carouselData} client:load />
+	</BigSection>
 </Layout>
