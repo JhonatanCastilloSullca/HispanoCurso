@@ -14,7 +14,6 @@ function Testimonios({ items }) {
       </h3>
       <Swiper
         spaceBetween={30}
-        slidesPerView={3}
 
         centeredSlides={false}
         autoplay={{
