@@ -29,7 +29,7 @@ Apprendre la base de la langue espagnole (grammaire, vocabulaire, conjugaison, e
         ],
     },
     {
-        titulo: "Cours Grupal",
+        titulo: "Cours Groupes",
         slug: "cours-grupal",
         imagen: "si",
         descripcion:
