@@ -11,49 +11,49 @@ import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import Testimonios from "../components/Testimonios";
 const socialLinks = [
-    {
-        icon: LinkedInIcon,
-        link: "https://www.linkedin.com/in/dante-yepez-1a735371/",
-    },
-    {
-        icon: InstagramIcon,
-        link: "https://www.instagram.com/espagnol_hispanocurso/?igshid=YmMyMTA2M2Y%3D",
-    },
+	{
+		icon: LinkedInIcon,
+		link: "https://www.linkedin.com/in/dante-yepez-1a735371/",
+	},
+	{
+		icon: InstagramIcon,
+		link: "https://www.instagram.com/espagnol_hispanocurso/?igshid=YmMyMTA2M2Y%3D",
+	},
 ];
 const academicData = [
-    {
-        titulo: "Formation Académique",
-        secciones: [
-            {
-                title: "Licence en Éducation.",
-            },
-            {
-                title: "Formation à l'enseignement de l'espagnol comme langue étrangère (ELE).",
-            },
-            {
-                title: "Formation continue à Salamanque, Espagne, pour la préparation de l'examen DELE.",
-            },
-        ],
-    },
+	{
+		titulo: "Formation Académique",
+		secciones: [
+			{
+				title: "Licence en Éducation.",
+			},
+			{
+				title: "Formation à l'enseignement de l'espagnol comme langue étrangère (ELE).",
+			},
+			{
+				title: "Formation continue à Salamanque, Espagne, pour la préparation de l'examen DELE.",
+			},
+		],
+	},
 ];
 const professionalData = [
-    {
-        titulo: "Expérience Professionnelle",
-        secciones: [
-            {
-                time: "2008 - 2012",
-                title: "Professeur d'espagnol dans des écoles internationales au Pérou.",
-            },
-            {
-                time: "2008 - 2012",
-                title: "Enseignant dans des écoles de langues telles que ECELA (Pérou, Chili et Argentine) et Et Máximo Nivel (Pérou, Guatemala et Costa Rica).",
-            },
-            {
-                time: "2012 - Présent",
-                title: "Professeur d'espagnol en Suisse, travaillant en freelance et dans une école de langues à Lausanne.",
-            },
-        ],
-    },
+	{
+		titulo: "Expérience Professionnelle",
+		secciones: [
+			{
+				time: "2008 - 2012",
+				title: "Professeur d'espagnol dans des écoles internationales au Pérou.",
+			},
+			{
+				time: "2008 - 2012",
+				title: "Enseignant dans des écoles de langues telles que ECELA (Pérou, Chili et Argentine) et Et Máximo Nivel (Pérou, Guatemala et Costa Rica).",
+			},
+			{
+				time: "2012 - Présent",
+				title: "Professeur d'espagnol en Suisse, travaillant en freelance et dans une école de langues à Lausanne.",
+			},
+		],
+	},
 ];
 const carouselData = [
 	{
@@ -106,7 +106,7 @@ const carouselData = [
 		image: "/images/avatar.png",
 		name: "Valérie P.",
 	},
-    {
+	{
 		text: "J'ai eu des cours super avec Dante - très efficaces, adapté, interactifs et amusants. Je recommande fortement les cours avec lui !",
 		image: "/images/avatar.png",
 		name: "Ebba",
@@ -211,58 +211,57 @@ const carouselData = [
 
 <!-- Titulo para el SEO -->
 <Layout>
-    <BigSection id="inicio" class="justify-between max-w-7xl">
-        <div class="grid grid-cols-2 gap-4">
-            <div
-                class="flex flex-col items-center md:items-start text-center md:text-left space-y-6 max-w-lg"
-            >
-                <h1
-                    class="text-5xl font-bold text-yellowPrimary dark:text-white"
-                >
-                    🖐 Salut, je m'appelle Dante.
-                </h1>
+	<BigSection id="inicio" class="justify-between max-w-7xl">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+			<div
+				class="flex flex-col items-center md:items-start text-center md:text-left space-y-6 max-w-lg"
+			>
+				<h1
+					class="text-5xl font-bold text-yellowPrimary dark:text-white"
+				>
+					🖐 Salut, je m'appelle Dante.
+				</h1>
 
-                <div
-                    class="flex items-center bg-white dark:bg-brownDark text-grayMedium dark:text-white px-4 py-2 rounded-full shadow-lg"
-                >
-                    👨‍🏫 Espagnol - Français
-                </div>
+				<div
+					class="flex items-center bg-white dark:bg-brownDark text-grayMedium dark:text-white px-4 py-2 rounded-full shadow-lg"
+				>
+					👨‍🏫 Espagnol - Français
+				</div>
 
-                <p
-                    class="text-lg leading-relaxed text-pretty text-grayMedium dark:text-white"
-                >
-                    J'ai un diplôme en éducation et un enseignant spécialisé en
-                    enseignement de l'espagnol comme langue étrangère (ELE).
-                    Avec plus de 15 ans d'expérience, j'ai travaillé dans écoles
-                    internationales, écoles de langues au Pérou et J'enseigne
-                    actuellement en Suisse en tant que professeur en freelance
-                    et dans une école de langues à Lausanne.
-                </p>
+				<p
+					class="text-lg leading-relaxed text-pretty text-grayMedium dark:text-white"
+				>
+					Je suis enseignant d’espagnol comme langue étrangère (ELE).
+					J’ai plus de 15 ans d’expérience dans ce domaine. J’ai
+					travaillé dans diverses écoles internationales.
+					Actuellement, je travaille comme enseignant indépendant,
+					ainsi que dans une école de langue à Lausanne
+				</p>
 
-                <div class="flex space-x-4">
-                    {
-                        socialLinks.map(({ icon, link }) => (
-                            <IconLink icon={icon} link={link} />
-                        ))
-                    }
-                </div>
-            </div>
-            <div class="relative flex-shrink-0 flex justify-center">
-                <img
-                    src="/images/Hispano_Curso_2.jpg"
-                    alt="Perfil"
-                    class="w-96 h-auto object-cover img-instructor"
-                />
-            </div>
-        </div>
-    </BigSection>
-    <BigSection id="profesional" class="justify-center max-w-7xl">
-        <div class="grid grid-cols-2 gap-4">
-            <Timeline items={academicData} />
-            <Timeline items={professionalData} />
-        </div>
-    </BigSection>
-    <BigSection class="max-w-7xl">
+				<div class="flex space-x-4">
+					{
+						socialLinks.map(({ icon, link }) => (
+							<IconLink icon={icon} link={link} />
+						))
+					}
+				</div>
+			</div>
+			<div class="relative flex-shrink-0 flex justify-center">
+				<img
+					src="/images/Hispano_Curso_2.jpg"
+					alt="Perfil"
+					class="w-96 h-auto object-cover img-instructor"
+				/>
+			</div>
+		</div>
+	</BigSection>
+	<BigSection id="profesional" class="justify-center max-w-7xl">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+			<Timeline items={academicData} />
+			<Timeline items={professionalData} />
+		</div>
+	</BigSection>
+	<BigSection class="max-w-7xl">
 		<Testimonios items={carouselData} client:load />
 	</BigSection>
 </Layout>

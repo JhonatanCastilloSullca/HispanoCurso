@@ -12,13 +12,13 @@ const { cours } = Astro.params;
 const cursoSeleccionado = cursos.find((c) => c.slug === cours);
 
 if (!cursoSeleccionado) {
-    throw new Error(`Curso no encontrado: ${cours}`);
+	throw new Error(`Curso no encontrado: ${cours}`);
 }
 
 export function getStaticPaths() {
-    return cursos.map((curso) => ({
-        params: { cours: curso.slug },
-    }));
+	return cursos.map((curso) => ({
+		params: { cours: curso.slug },
+	}));
 }
 const carouselData = [
 	{
@@ -71,7 +71,7 @@ const carouselData = [
 		image: "/images/avatar.png",
 		name: "Valérie P.",
 	},
-    {
+	{
 		text: "J'ai eu des cours super avec Dante - très efficaces, adapté, interactifs et amusants. Je recommande fortement les cours avec lui !",
 		image: "/images/avatar.png",
 		name: "Ebba",
@@ -175,63 +175,72 @@ const carouselData = [
 ---
 
 <Layout>
-    <BigSection id="cursos" class="max-w-7xl">
-        <div class="container py-4 mt-24 mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-center">
-                <div class="prose max-w-none px-24">
-                    <span
-                        class="not-prose items-start mb-4 rounded-full px-3 py-1 text-base font-semibold bg-brownDark text-white ring-1 ring-yellowSecondary flex justify-start w-fit"
-                    >
-                        benvenuto
-                    </span>
-                    <h2
-                        slot="heading-title"
-                        class="font-black text-grayDark dark:text-white h2 my-4 text-left"
-                    >
-                        {cursoSeleccionado.titulo}
-                    </h2>
-                    <div
-                        slot="heading-content"
-                        class="text-justify text-grayMedium dark:text-white"
-                    >
-                        <p>{cursoSeleccionado.descripcion}</p>
-                        <ul class="py-4">
-                            {
-                                cursoSeleccionado.beneficios.map(
-                                    (beneficio, index) => (
-                                        <li class="text-grayMedium dark:text-white font-medium flex gap-4">
-                                            ▪ {beneficio.titulo}
-                                        </li>
-                                    ),
-                                )
-                            }
-                        </ul>
-                        <div class="mt-8">
-                            <a
-                                class="bg-brownDark dark:bg-yellowSecondary rounded-lg px-4 py-2 text-white font-semibold"
-                                href="/contactez"
-                                target="_self"
-                                rel=""
-                            >
-                                Book a table
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    {cursoSeleccionado.imagen === "si" ? (
-                        <div class="w-full h-[70vh] object-cover">
-                            <CarouselComponent images={cursoSeleccionado.imagenes.map(img => img.imagen)} client:load />
-                        </div>
-                    ) : (
-                        <CarouselComponentVideo images={cursoSeleccionado.imagenes} client:load />
-                    )}
-                </div>
-
-            </div>
-        </div>
-    </BigSection>
-    <BigSection class="max-w-7xl">
+	<BigSection id="cursos" class="max-w-7xl">
+		<div class="container py-4 mt-24 mx-auto">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-center">
+				<div class="prose max-w-none md:px-24 px-12">
+					<span
+						class="not-prose items-start mb-4 rounded-full px-3 py-1 text-base font-semibold bg-brownDark text-white ring-1 ring-yellowSecondary flex justify-start w-fit"
+					>
+						benvenuto
+					</span>
+					<h2
+						slot="heading-title"
+						class="font-black text-grayDark dark:text-white h2 my-4 text-left"
+					>
+						{cursoSeleccionado.titulo}
+					</h2>
+					<div
+						slot="heading-content"
+						class="text-justify text-grayMedium dark:text-white"
+					>
+						<p>{cursoSeleccionado.descripcion}</p>
+						<ul class="py-4">
+							{
+								cursoSeleccionado.beneficios.map(
+									(beneficio, index) => (
+										<li class="text-grayMedium dark:text-white font-medium flex gap-4">
+											▪ {beneficio.titulo}
+										</li>
+									),
+								)
+							}
+						</ul>
+						<div class="mt-8">
+							<a
+								class="bg-brownDark dark:bg-yellowSecondary rounded-lg px-4 py-2 text-white font-semibold"
+								href="/contactez"
+								target="_self"
+								rel=""
+							>
+								Book a table
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="flex justify-center">
+					{
+						cursoSeleccionado.imagen === "si" ? (
+							<div class="w-full h-[70vh] object-cover">
+								<CarouselComponent
+									images={cursoSeleccionado.imagenes.map(
+										(img) => img.imagen,
+									)}
+									client:load
+								/>
+							</div>
+						) : (
+							<CarouselComponentVideo
+								images={cursoSeleccionado.imagenes}
+								client:load
+							/>
+						)
+					}
+				</div>
+			</div>
+		</div>
+	</BigSection>
+	<BigSection class="max-w-7xl">
 		<Testimonios items={carouselData} client:load />
 	</BigSection>
 </Layout>

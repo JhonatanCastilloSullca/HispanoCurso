@@ -17,7 +17,7 @@ import CarouselComponent from "./CarouselComponent";
 
 const caracteristicas = [
 	{
-		titulo: "Voyage",
+		titulo: "Voyager",
 		icon: TravelIcon,
 		descripcion: [
 			{
@@ -60,7 +60,7 @@ const caracteristicas = [
 			{
 				titulo: "Améliorez votre intégration professionnelle.",
 				detalle:
-					"Avec l'espagnol, vous pouvez accéder à de meilleures opportunités professionnelles et professionnelles, tant dans les entreprises locales qu'internationales présentes dans les pays hispanophones.",
+					"Avec l'espagnol, vous pouvez accéder à de meilleures opportunités professionnelles, tant dans les entreprises locales qu'internationales présentes dans les pays hispanophones.",
 			},
 		],
 	},
@@ -99,19 +99,19 @@ const caracteristicas = [
 ];
 
 const Imagenes = [
-            {
-                imagen: "/images/slider_hispanocurso_01_a.jpg",
-            },
-            {
-                imagen: "/images/slider_hispanocurso_01_b.jpg",
-            },
-            {
-                imagen: "/images/slider_hispanocurso_01_c.jpg",
-            },
-            {
-                imagen: "/images/slider_hispanocurso_01_d_.jpg",
-            },
-        ];
+	{
+		imagen: "/images/slider_hispanocurso_01_a.jpg",
+	},
+	{
+		imagen: "/images/slider_hispanocurso_01_b.jpg",
+	},
+	{
+		imagen: "/images/slider_hispanocurso_01_c.jpg",
+	},
+	{
+		imagen: "/images/slider_hispanocurso_01_d_.jpg",
+	},
+];
 
 const carouselData = [
 	{
@@ -137,10 +137,10 @@ const carouselData = [
 
 <div>
 	<main>
-		<div class="w-full relative mt-3">
-			<div class="w-full h-[100vh] object-cover z-10">
+		<div class="w-full relative">
+			<div class="w-full h-[50vh] md:h-full object-cover z-10">
 				<CarouselComponent
-					images={Imagenes.map(img => img.imagen)} 
+					images={Imagenes.map((img) => img.imagen)}
 					client:load
 				/>
 			</div>
@@ -158,7 +158,7 @@ const carouselData = [
 				<div class="flex justify-center items-center align-middle">
 					<video
 						src="/images/video.mp4"
-						controls 
+						controls
 						loop
 						class="object-cover rounded-md px-12"
 					>
@@ -233,24 +233,24 @@ const carouselData = [
 			</div>
 		</BigSection>
 
-
 		<BigSection id="caracteristicas" class="max-w-7xl">
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				<div
 					class="mt-2 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-1 px-4 lg:grid-cols-1"
 				>
 					<p class="px-12">
-					"Apprenez l'espagnol avec des cours personnalisés pour tous les niveaux !
-					Je vous offre une séance gratuite de 30 minutes pour découvrir ma méthode.
-					Horaires totalement flexibles adaptés à vos besoins.
-					Préparation spécialisée aux examens DELE.
-					N'attendez plus, réservez votre cours dès aujourd'hui !"
+						"Apprenez l'espagnol avec des cours personnalisés pour
+						tous les niveaux ! Je vous offre une séance gratuite de
+						30 minutes pour découvrir ma méthode. Horaires
+						totalement flexibles adaptés à vos besoins. Préparation
+						spécialisée aux examens DELE. N'attendez plus, réservez
+						votre cours dès aujourd'hui !"
 					</p>
 				</div>
 				<div class="flex justify-center items-center align-middle">
 					<video
 						src="/images/Video Hispano Curso v6.mp4"
-						controls 
+						controls
 						loop
 						class="object-cover rounded-md px-12"
 					>

@@ -4,7 +4,7 @@ import React from "react";
 const CarouselComponent = ({ images }) => {
     console.log(images)
     return (
-        <div id="default-carousel" className="relative w-full h-full" data-carousel="slide">
+        <div id="default-carousel" className="relative w-full h-[50vh] md:h-[100vh] " data-carousel="slide">
             {/* Carousel wrapper */}
             <div className="relative  overflow-hidden rounded-lg h-full">
                 {images.map((image, index) => (
@@ -16,7 +16,7 @@ const CarouselComponent = ({ images }) => {
                         <img
                             src={image}
                             alt={`Slide ${index + 1}`}
-                            className="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                            className="absolute block w-full  object-contain md:object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                         />
                     </div>
                 ))}

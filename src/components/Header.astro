@@ -23,63 +23,70 @@ const navItems = [
 ---
 
 <header
-    class="fixed top-0 z-10 flex flex-col md:flex-row items-center justify-center w-full mt-2 p-2 md:p-3 mx-auto"
+    class="md:fixed relative top-0 z-10 flex flex-col md:flex-row items-center justify-center mt-2 p-2 md:p-3 mx-auto w-full"
     style="z-index: 999"
 >
     <nav
-        class="flex justify-center items-center bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 rounded-full"
+        class="flex justify-center items-center bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 rounded-md md:rounded-full w-full md:w-auto"
     >
         <div
-            class="max-w-screen-xl flex items-center justify-between mx-auto px-4 py-2 rounded-lg"
+            class="max-w-screen-xl flex items-center justify-between mx-auto px-4 py-2 rounded-lg flex-col md:flex-row w-full"
         >
-            <button
-                data-collapse-toggle="navbar-dropdown"
-                type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="navbar-dropdown"
-                aria-expanded="false"
-            >
-                <span class="sr-only">Open main menu</span>
-                <svg
-                    class="w-5 h-5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 17 14"
-                >
-                    <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M1 1h15M1 7h15M1 13h15"></path>
-                </svg>
-            </button>
             <div
-                class="flex flex-col md:flex-row w-full rounded-lg"
-                id="navbar-dropdown"
+                class="flex flex-row md:flex-col justify-between items-center align-middle w-full md:w-auto"
             >
                 <div class="mb-4 md:mb-0 md:mr-4 flex justify-center">
                     <a href="/">
                         <img
                             src="/images/logo-hispano-color.png"
-                            class="h-12 dark:hidden"
+                            class="h-12 object-contain dark:hidden"
                             alt="Logo Hispano Claro"
                         />
                         <img
                             src="/images/logo-hispano-color-white.png"
-                            class="h-12 hidden dark:block"
+                            class="h-12 object-contain hidden dark:block"
                             alt="Logo Hispano Oscuro"
                         />
                     </a>
                 </div>
-                <ul class="w-100 overflow-auto flex flex-row items-center">
+                <button
+                    data-collapse-toggle="navbar-dropdown"
+                    type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-dropdown"
+                    aria-expanded="false"
+                >
+                    <span class="sr-only">Open main menu</span>
+                    <svg
+                        class="w-5 h-5"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 17 14"
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div
+                class="flex flex-col md:flex-row w-full rounded-lg"
+                id="navbar-dropdown"
+            >
+                <ul
+                    class="w-100 overflow-auto flex flex-col md:flex-row items-center"
+                >
                     <li>
                         <a
                             href={"/"}
                             class="font-semibold w-100 max-w-fit min-w-fit relative block px-4 py-2 transition text-grayDark dark:text-white hover:text-yellowSecondary dark:hover:text-yellowSecondary"
                         >
-                            D'accueil
+                            Accueil
                         </a>
                     </li>
                     <li>
@@ -87,7 +94,7 @@ const navItems = [
                             href={"/sur-moi"}
                             class="font-semibold w-100 max-w-fit min-w-fit relative block px-4 py-2 transition text-grayDark dark:text-white hover:text-yellowSecondary dark:hover:text-yellowSecondary"
                         >
-                            A propos de moi
+                            À propos de moi
                         </a>
                     </li>
                     <li>
@@ -122,28 +129,28 @@ const navItems = [
                                     <a
                                         href="/cours/cours-individual"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >Curso Individual</a
+                                        >Cours Individuels</a
                                     >
                                 </li>
                                 <li>
                                     <a
                                         href="/cours/cours-grupal"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >Curso Grupal</a
+                                        >Cours Groupes</a
                                     >
                                 </li>
                                 <li>
                                     <a
                                         href="/cours/cours-online"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >Curso Online</a
+                                        >Cours Online</a
                                     >
                                 </li>
                                 <li>
                                     <a
                                         href="/cours/cours-enterprises"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >Cours Entreprises</a
+                                        >Cours pour Entreprise</a
                                     >
                                 </li>
                             </ul>
@@ -159,7 +166,6 @@ const navItems = [
                     </li>
                 </ul>
             </div>
-            
         </div>
     </nav>
 </header>
@@ -195,7 +201,6 @@ const navItems = [
             observer.observe(section);
         });
 
-        // Cleanup function
         document.onvisibilitychange = () => {
             if (document.visibilityState === "hidden") {
                 observer.disconnect();
