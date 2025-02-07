@@ -8,7 +8,6 @@ const CarouselComponentVideo = ({ images }) => {
     const swiperRef = useRef(null);
 
     const handleSlideChange = () => {
-        // Pausar todos los videos cuando se cambia de slide
         const videos = document.querySelectorAll('video');
         videos.forEach(video => {
             video.pause();
@@ -16,11 +15,9 @@ const CarouselComponentVideo = ({ images }) => {
     };
 
     useEffect(() => {
-        // Obtener el swiper y agregar el evento 'slideChange'
         const swiper = swiperRef.current.swiper;
         swiper.on('slideChange', handleSlideChange);
 
-        // Limpiar el evento cuando el componente se desmonte
         return () => {
             swiper.off('slideChange', handleSlideChange);
         };
