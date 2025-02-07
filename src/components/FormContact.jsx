@@ -24,15 +24,15 @@ export default function ContactForm() {
         const { name, email, phone, message, policy } = formData;
 
         if (!name || !email || !phone || !message || !policy) {
-            setFormStatus('Veuillez remplir tous les champs.');
+            setFormStatus('Por favor, complete todos los campos.');
             return;
         }
 
         const templateParams = {
             to_email: "danteyepez1980@gmail.com, info@hispanocurso.com",
-            user_name: name,
-            user_email: email,
-            user_phone: phone,
+            from_name: name,
+            from_email: email,
+            from_phone: phone,
             message: message
         };
 
@@ -44,12 +44,13 @@ export default function ContactForm() {
                 'O85jCDtgfXL3cqPPy'
             );
 
-            setFormStatus('Merci! Votre message a été envoyé avec succès.');
+            setFormStatus('¡Gracias! Su mensaje ha sido enviado con éxito.');
             setFormData({ name: '', email: '', phone: '', message: '', policy: false });
         } catch (error) {
-            setFormStatus('Erreur! Veuillez réessayer plus tard.');
+            setFormStatus('¡Error! Por favor, inténtelo más tarde.');
         }
     };
+
 
     return (
         <div className="relative w-full mx-auto pb-12 max-w-full">
