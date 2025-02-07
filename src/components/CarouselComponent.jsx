@@ -4,8 +4,7 @@ import React from "react";
 const CarouselComponent = ({ images }) => {
     console.log(images)
     return (
-        <div id="default-carousel" className="relative w-full h-[50vh] md:h-[100vh] " data-carousel="slide">
-            {/* Carousel wrapper */}
+        <div id="default-carousel" className="relative w-full h-[50vh] md:h-full " data-carousel="slide">
             <div className="relative  overflow-hidden rounded-lg h-full">
                 {images.map((image, index) => (
                     <div
@@ -16,27 +15,12 @@ const CarouselComponent = ({ images }) => {
                         <img
                             src={image}
                             alt={`Slide ${index + 1}`}
-                            className=""
+                            className="absolute block w-full  object-contain md:object-cover"
                         />
                     </div>
                 ))}
             </div>
 
-            {/* Slider indicators 
-            <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                {images.map((_, index) => (
-                    <button
-                        key={index}
-                        type="button"
-                        className="w-3 h-3 rounded-full"
-                        aria-current={index === 0 ? "true" : "false"}
-                        aria-label={`Slide ${index + 1}`}
-                        data-carousel-slide-to={index}
-                    ></button>
-                ))}
-            </div>
-            */}
-            {/* Slider controls */}
             <button
                 type="button"
                 className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"

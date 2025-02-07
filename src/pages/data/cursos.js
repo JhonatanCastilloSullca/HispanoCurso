@@ -1,4 +1,3 @@
-// Exporta el array `cursos`
 export const cursos = [
     {
         titulo: "Cours Individuels",
