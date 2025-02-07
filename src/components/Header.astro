@@ -23,7 +23,7 @@ const navItems = [
 ---
 
 <header
-    class="md:fixed relative top-0 z-10 flex flex-col md:flex-row items-center justify-center mt-2 p-2 md:p-3 mx-auto w-full"
+    class="sticky top-0 z-10 flex flex-col md:flex-row items-center justify-center mt-2 p-2 md:p-3 mx-auto w-full"
     style="z-index: 999"
 >
     <nav
@@ -50,7 +50,7 @@ const navItems = [
                     </a>
                 </div>
                 <button
-                    data-collapse-toggle="navbar-dropdown"
+                    id="menu-toggle"
                     type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-dropdown"
@@ -75,8 +75,8 @@ const navItems = [
             </div>
 
             <div
-                class="flex flex-col md:flex-row w-full rounded-lg"
                 id="navbar-dropdown"
+                class="hidden md:flex flex-col md:flex-row w-full rounded-lg"
             >
                 <ul
                     class="w-100 overflow-auto flex flex-col md:flex-row items-center"
@@ -102,7 +102,9 @@ const navItems = [
                             id="dropdownNavbarLink"
                             data-dropdown-toggle="dropdownNavbar"
                             class="font-semibold flex items-center align-middle w-100 max-w-fit min-w-fit relative px-4 py-2 transition text-grayDark dark:text-white hover:text-yellowSecondary dark:hover:text-yellowSecondary"
-                            >Cours <svg
+                        >
+                            Cours
+                            <svg
                                 class="w-2.5 h-2.5 ms-2.5"
                                 aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -115,8 +117,8 @@ const navItems = [
                                     stroke-linejoin="round"
                                     stroke-width="2"
                                     d="m1 1 4 4 4-4"></path>
-                            </svg></button
-                        >
+                            </svg>
+                        </button>
                         <div
                             id="dropdownNavbar"
                             class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
@@ -129,29 +131,33 @@ const navItems = [
                                     <a
                                         href="/cours/cours-individual"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >Cours Individuels</a
                                     >
+                                        Cours Individuels
+                                    </a>
                                 </li>
                                 <li>
                                     <a
                                         href="/cours/cours-grupal"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >Cours Groupes</a
                                     >
+                                        Cours Groupes
+                                    </a>
                                 </li>
                                 <li>
                                     <a
                                         href="/cours/cours-online"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >Cours Online</a
                                     >
+                                        Cours Online
+                                    </a>
                                 </li>
                                 <li>
                                     <a
                                         href="/cours/cours-enterprises"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        >Cours pour Entreprise</a
                                     >
+                                        Cours pour Entreprise
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -171,43 +177,51 @@ const navItems = [
 </header>
 
 <script>
-    document.addEventListener("astro:page-load", () => {
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("navbar-dropdown");
+
+        if (menuToggle && menu) {
+            menuToggle.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+                menu.classList.toggle("flex"); // Asegura que se muestra
+            });
+        }
+
         const sections = document.querySelectorAll("section");
         const navItems = document.querySelectorAll("header nav a");
 
-        const callback = (entries: any[]) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    navItems.forEach((item) => {
-                        if (
-                            item.getAttribute("aria-label") == entry.target.id
-                        ) {
-                            item.classList.add("text-blue-500");
-                        } else {
-                            item.classList.remove("text-blue-500");
-                        }
-                    });
-                }
-            });
-        };
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        navItems.forEach((item) => {
+                            if (
+                                item.getAttribute("aria-label") ==
+                                entry.target.id
+                            ) {
+                                item.classList.add("text-blue-500");
+                            } else {
+                                item.classList.remove("text-blue-500");
+                            }
+                        });
+                    }
+                });
+            },
+            {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.3,
+            },
+        );
 
-        const observer = new IntersectionObserver(callback, {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.3,
-        });
-
-        sections.forEach((section) => {
-            observer.observe(section);
-        });
+        sections.forEach((section) => observer.observe(section));
 
         document.onvisibilitychange = () => {
             if (document.visibilityState === "hidden") {
                 observer.disconnect();
             } else {
-                sections.forEach((section) => {
-                    observer.observe(section);
-                });
+                sections.forEach((section) => observer.observe(section));
             }
         };
     });
