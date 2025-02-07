@@ -28,28 +28,36 @@ export default function ContactForm() {
             return;
         }
 
-        const templateParams = {
-            to_email: 'jcastillosullca@gmail.com',
-            user_name: name,
-            user_email: email,
-            user_phone: phone,
-            message: message
-        };
 
         try {
-            await emailjs.send(
-                'service_zlq54qq', // Reemplaza con tu Service ID
-                'template_i0u6nc4', // Reemplaza con tu Template ID
-                templateParams,
-                'EoKHBqO3mU9nXX53b' // Reemplaza con tu Public Key
-            );
 
             setFormStatus('Merci! Votre message a été envoyé avec succès.');
-            setFormData({ name: '', email: '', phone: '', message: '', policy: false });
         } catch (error) {
-            setFormStatus('Erreur! Veuillez réessayer plus tard.');
+            setFormStatus("Erreur! Veuillez réessayer plus tard.");
         }
+
+        setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            message: '',
+            policy: false
+        });
     };
+    const images = [
+        "/images/Hispano_Curso_2.jpg",
+        "/images/IMG_20210426_135106_845.jpg",
+        "/images/IMG_20210426_135106_873.jpg",
+        "/images/IMG_20210426_135106_904.jpg",
+        "/images/IMG_20210426_135106_937.jpg",
+        "/images/IMG_20210426_135337_504.jpg",
+        "/images/satisfied-teacher.jpg",
+        "/images/stock1.jpg",
+        "/images/stock2.jpg",
+        "/images/stock3.png",
+
+    ];
+
 
     return (
         <div className="relative w-full mx-auto pb-12 max-w-full">

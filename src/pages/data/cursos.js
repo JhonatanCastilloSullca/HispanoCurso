@@ -22,13 +22,16 @@ Apprendre la base de la langue espagnole (grammaire, vocabulaire, conjugaison, e
         ],
         imagenes: [
             {
-                imagen: "/images/dante_laptop_editado.png",
+                imagen: "/images/IMG_20210426_135106_988_editado-redimensionado.jpg",
+            },
+            {
+                imagen: "/images/IMG_20210426_135337_594_editado-redimensionado-montaje.jpg",
             },
 
         ],
     },
     {
-        titulo: "Cours Groupes",
+        titulo: "Cours en Groupe",
         slug: "cours-grupal",
         imagen: "si",
         descripcion:
@@ -51,8 +54,11 @@ Apprendre la base de la langue espagnole (grammaire, vocabulaire, conjugaison, e
         ],
         imagenes: [
             {
-                imagen: "/images/dante_laptop_editado.png",
+                imagen: "/images/banner_2.jpg",
             },
+            {
+                imagen: "/images/banner_2.jpg",
+            }
 
         ],
     },
@@ -82,6 +88,9 @@ Apprendre la base de la langue espagnole (grammaire, vocabulaire, conjugaison, e
             {
                 imagen: "/images/dante_laptop_editado.png",
             },
+            {
+                imagen: "/images/dante_laptop_editado.png",
+            }
         ],
     },
     {

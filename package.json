@@ -16,10 +16,14 @@
     "astro": "^5.1.2",
     "emailjs-com": "^3.2.0",
     "flowbite": "^2.5.2",
+    "nodemailer": "^6.10.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-floating-whatsapp": "^5.0.8",
     "swiper": "^11.2.1",
     "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.17"
   }
 }
