@@ -27,29 +27,32 @@ export default function ContactForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { name, email, phone, message, policy } = formData;
-
-
-        if (!name || !email || !phone || !message || !policy) {
-            setFormStatus('Veuillez remplir tous les champs.');
+    
+        if (!formData.name || !formData.email || !formData.phone || !formData.message || !formData.policy) {
+            setFormStatus("Veuillez remplir tous les champs.");
             return;
         }
-
-
+    
         try {
-
-            setFormStatus('Merci! Votre message a été envoyé avec succès.');
+            const response = await fetch("/api/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+    
+            const result = await response.json();
+            if (response.ok) {
+                setFormStatus(result.success);
+            } else {
+                setFormStatus(result.error);
+            }
         } catch (error) {
-            setFormStatus('Erreur! Veuillez réessayer plus tard.');
+            setFormStatus("Erreur! Veuillez réessayer plus tard.");
         }
-
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            message: '',
-            policy: false
-        });
+    
+        setFormData({ name: "", email: "", phone: "", message: "", policy: false });
     };
     const images = [
         "/images/Hispano_Curso_2.jpg",

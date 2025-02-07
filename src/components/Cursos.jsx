@@ -24,12 +24,9 @@ function Cursos({ cursos }) {
                         </button>
                     ))}
                 </div>
-                <div className="container py-4 mt-24 mx-auto">
+                <div className="container py-4 mt-10 mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:items-center">
                         <div className="prose max-w-none px-24">
-                            <span className="not-prose items-start mb-4 rounded-full px-3 py-1 text-base font-semibold bg-brownDark text-white ring-1 ring-yellowSecondary flex justify-start w-fit">
-                                benvenuto
-                            </span>
                             <h2 slot="heading-title" className="font-black text-grayDark dark:text-white h2 my-4 text-left">
                                 {cursoSeleccionado.titulo}
                             </h2>

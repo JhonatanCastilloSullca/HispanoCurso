@@ -2,7 +2,6 @@ import React from "react";
 
 
 const CarouselComponent = ({ images }) => {
-    console.log(images)
     return (
         <div id="default-carousel" className="relative w-full h-[50vh] md:h-full " data-carousel="slide">
             <div className="relative  overflow-hidden rounded-lg h-full">
