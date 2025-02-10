@@ -156,12 +156,10 @@ const carouselData = [
 			</div>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				<div class="flex justify-center items-center align-middle">
-					<video
-						src="/images/video.mp4"
-						controls
-						loop
-						class="object-cover rounded-md px-12"
-					>
+					<video controls loop class="rounded-md px-12">
+						<source src="/images/video.mp4" type="video/mp4" />
+						<source src="/images/video.webm" type="video/webm" />
+						Tu navegador no soporta videos.
 					</video>
 				</div>
 				<div
